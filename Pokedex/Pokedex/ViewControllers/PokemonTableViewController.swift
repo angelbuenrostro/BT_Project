@@ -9,6 +9,12 @@
 import UIKit
 
 class PokemonTableViewController: UITableViewController {
+    
+    // MARK: - Actions
+    @IBAction func fetchPokemonButtonTapped(_ sender: UIButton) {
+        print("Fetch Pokemon tapped.")
+    }
+    
 
     override func viewDidLoad() {
         super.viewDidLoad()
