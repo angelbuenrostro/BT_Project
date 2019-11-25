@@ -56,7 +56,7 @@ class APIController {
                     
                 } else {
                     
-            // If no pre-existing record is found make a network request and save new object to store
+                    // If no pre-existing record is found make a network request and save new object to store
                     fetchPokemon(id: num, name: nil) { (result) in
                         
                         if let pokemonResult = try? result.get() {
