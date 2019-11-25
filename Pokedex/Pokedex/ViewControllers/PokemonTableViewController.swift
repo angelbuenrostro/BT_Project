@@ -19,6 +19,8 @@ class PokemonTableViewController: UITableViewController {
     
     // MARK: - Properties
     
+    let apiController = APIController()
+    
     lazy var fetchedResultsController: NSFetchedResultsController<Pokemon> = {
         let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
         
@@ -86,6 +88,7 @@ class PokemonTableViewController: UITableViewController {
 
 }
 
+// MARK: - Extensions
 
 extension PokemonTableViewController: NSFetchedResultsControllerDelegate {
     
