@@ -11,12 +11,6 @@ import CoreData
 
 class PokemonTableViewController: UITableViewController {
     
-    // MARK: - Actions
-    
-    @IBAction func fetchPokemonButtonTapped(_ sender: UIButton) {
-        print("Fetch Pokemon tapped.")
-    }
-    
     // MARK: - Properties
     
     let apiController = APIController()
@@ -40,6 +34,15 @@ class PokemonTableViewController: UITableViewController {
     }()
     
 
+    // MARK: - Actions
+    
+    @IBAction func fetchPokemonButtonTapped(_ sender: UIButton) {
+        print("Fetch Pokemon tapped.")
+        self.apiController.getRandomPokemon()
+    }
+    
+    // MARK: - View Life Cycle
+    
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -60,10 +63,11 @@ class PokemonTableViewController: UITableViewController {
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokeCell", for: indexPath) as! PokemonTableViewCell
 
         let pokemon = fetchedResultsController.object(at: indexPath)
-        cell.nameLabel.text = pokemon.name
-        cell.idLabel.text = String(pokemon.id)
+        cell.nameLabel.text = pokemon.name?.capitalized
+        cell.idLabel.text = "ID: \(String(pokemon.id))"
         if let imgURLString = pokemon.imgURLString {
             // Load an image
+            cell.pokemonImageView.loadImageUsingCache(withUrl: imgURLString)
         }
 
         return cell
@@ -132,5 +136,37 @@ extension PokemonTableViewController: NSFetchedResultsControllerDelegate {
         @unknown default:
             break
         }
+    }
+}
+
+
+let imageCache = NSCache<NSString, AnyObject>()
+
+extension UIImageView {
+    func loadImageUsingCache(withUrl urlString : String) {
+        let url = URL(string: urlString)
+        self.image = nil
+
+        // check cached image
+        if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
+            self.image = cachedImage
+            return
+        }
+
+        // if not, download image from url
+        URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            if error != nil {
+                print(error!)
+                return
+            }
+
+            DispatchQueue.main.async {
+                if let image = UIImage(data: data!) {
+                    imageCache.setObject(image, forKey: urlString as NSString)
+                    self.image = image
+                }
+            }
+
+        }).resume()
     }
 }

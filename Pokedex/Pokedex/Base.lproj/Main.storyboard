@@ -1,8 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="iFE-NX-dd5">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="15505" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="IvY-Y5-S63">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="15510"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="Stack View standard spacing" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -20,66 +21,62 @@
                             <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
                             <fontDescription key="fontDescription" style="UICTFontTextStyleHeadline"/>
-                            <state key="normal" title="Fetch Pokemon"/>
+                            <state key="normal" title="Fetch Random Pokemon"/>
                             <connections>
                                 <action selector="fetchPokemonButtonTapped:" destination="iFE-NX-dd5" eventType="touchUpInside" id="FOk-x7-qMG"/>
                             </connections>
                         </button>
                         <prototypes>
-                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokeCell" rowHeight="130" id="5hZ-Mx-rwt" customClass="PokemonTableViewCell" customModule="Pokedex" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="72" width="414" height="130"/>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" selectionStyle="default" indentationWidth="10" reuseIdentifier="PokeCell" rowHeight="150" id="5hZ-Mx-rwt" customClass="PokemonTableViewCell" customModule="Pokedex" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="72" width="414" height="150"/>
                                 <autoresizingMask key="autoresizingMask"/>
                                 <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="5hZ-Mx-rwt" id="3b7-Ty-nKv">
-                                    <rect key="frame" x="0.0" y="0.0" width="414" height="130"/>
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                     <autoresizingMask key="autoresizingMask"/>
                                     <subviews>
-                                        <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="prs-nG-rdN">
-                                            <rect key="frame" x="20" y="0.0" width="374" height="130"/>
+                                        <stackView opaque="NO" contentMode="scaleToFill" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="prs-nG-rdN" userLabel="Horizontal Stack">
+                                            <rect key="frame" x="0.0" y="0.0" width="414" height="150"/>
                                             <subviews>
-                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" distribution="fillEqually" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPj-r2-nXp">
-                                                    <rect key="frame" x="0.0" y="0.0" width="164" height="130"/>
+                                                <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacingType="standard" translatesAutoresizingMaskIntoConstraints="NO" id="wPj-r2-nXp" userLabel="Vertical Label Stack">
+                                                    <rect key="frame" x="0.0" y="11" width="216" height="128"/>
                                                     <subviews>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHh-XB-lT6">
-                                                            <rect key="frame" x="0.0" y="0.0" width="164" height="61"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="name" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kHh-XB-lT6">
+                                                            <rect key="frame" x="74.5" y="0.0" width="67.5" height="93.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle1"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
-                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="id" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByM-lk-MCx">
-                                                            <rect key="frame" x="0.0" y="69" width="164" height="61"/>
-                                                            <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="id" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ByM-lk-MCx">
+                                                            <rect key="frame" x="99.5" y="101.5" width="17.5" height="26.5"/>
+                                                            <fontDescription key="fontDescription" style="UICTFontTextStyleTitle2"/>
                                                             <nil key="textColor"/>
                                                             <nil key="highlightedColor"/>
                                                         </label>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="trailing" secondItem="ByM-lk-MCx" secondAttribute="trailing" id="3ZN-Zu-Mfa"/>
-                                                        <constraint firstAttribute="trailing" secondItem="kHh-XB-lT6" secondAttribute="trailing" id="6Cv-l9-qz0"/>
-                                                        <constraint firstItem="ByM-lk-MCx" firstAttribute="leading" secondItem="wPj-r2-nXp" secondAttribute="leading" id="6H6-UE-O7W"/>
-                                                        <constraint firstItem="kHh-XB-lT6" firstAttribute="leading" secondItem="wPj-r2-nXp" secondAttribute="leading" id="GvW-Vc-5fd"/>
+                                                        <constraint firstAttribute="height" constant="128" id="io5-4V-QCa"/>
+                                                        <constraint firstAttribute="width" constant="216" id="wbF-4N-EPN"/>
                                                     </constraints>
                                                 </stackView>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="3rb-xQ-uRs">
-                                                    <rect key="frame" x="244" y="0.0" width="130" height="130"/>
+                                                    <rect key="frame" x="224" y="0.0" width="190" height="150"/>
                                                     <constraints>
-                                                        <constraint firstAttribute="width" secondItem="3rb-xQ-uRs" secondAttribute="height" id="9Kb-lA-D0j"/>
-                                                        <constraint firstAttribute="height" constant="130" id="Dli-my-ipQ"/>
+                                                        <constraint firstAttribute="width" secondItem="3rb-xQ-uRs" secondAttribute="height" multiplier="1:1" id="qpl-Oq-h08"/>
                                                     </constraints>
                                                 </imageView>
                                             </subviews>
-                                            <constraints>
-                                                <constraint firstItem="3rb-xQ-uRs" firstAttribute="leading" secondItem="wPj-r2-nXp" secondAttribute="trailing" constant="80" id="2pQ-0d-uUk"/>
-                                                <constraint firstItem="wPj-r2-nXp" firstAttribute="leading" secondItem="prs-nG-rdN" secondAttribute="leading" id="V7E-Yw-3oF"/>
-                                            </constraints>
                                         </stackView>
                                     </subviews>
                                     <constraints>
-                                        <constraint firstItem="prs-nG-rdN" firstAttribute="leading" secondItem="3b7-Ty-nKv" secondAttribute="leading" constant="20" id="0gm-JS-61j"/>
-                                        <constraint firstItem="prs-nG-rdN" firstAttribute="top" secondItem="3b7-Ty-nKv" secondAttribute="top" id="m7g-3l-2lJ"/>
-                                        <constraint firstAttribute="bottom" secondItem="prs-nG-rdN" secondAttribute="bottom" id="mF3-Lq-tJK"/>
-                                        <constraint firstAttribute="trailing" secondItem="prs-nG-rdN" secondAttribute="trailing" constant="20" id="xV8-TD-aEp"/>
+                                        <constraint firstItem="prs-nG-rdN" firstAttribute="centerX" secondItem="3b7-Ty-nKv" secondAttribute="centerX" id="5ym-Km-SNj"/>
+                                        <constraint firstItem="prs-nG-rdN" firstAttribute="leading" secondItem="3b7-Ty-nKv" secondAttribute="leading" id="Ptw-we-syP"/>
+                                        <constraint firstItem="prs-nG-rdN" firstAttribute="centerY" secondItem="3b7-Ty-nKv" secondAttribute="centerY" id="Wra-Jr-za6"/>
+                                        <constraint firstItem="prs-nG-rdN" firstAttribute="top" secondItem="3b7-Ty-nKv" secondAttribute="top" id="dy0-Zg-RyP"/>
+                                        <constraint firstAttribute="bottom" secondItem="prs-nG-rdN" secondAttribute="bottom" id="mYC-Av-s5U"/>
+                                        <constraint firstAttribute="trailing" secondItem="prs-nG-rdN" secondAttribute="trailing" id="rnu-6g-MlI"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <viewLayoutGuide key="safeArea" id="gds-5e-PZ8"/>
                                 <connections>
                                     <outlet property="idLabel" destination="ByM-lk-MCx" id="KNX-Zg-HEH"/>
                                     <outlet property="nameLabel" destination="kHh-XB-lT6" id="wH0-bZ-xMq"/>
@@ -92,8 +89,27 @@
                             <outlet property="delegate" destination="iFE-NX-dd5" id="VTr-ZP-CVh"/>
                         </connections>
                     </tableView>
+                    <navigationItem key="navigationItem" title="Pokedex" id="zf8-3U-tm7"/>
                 </tableViewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pgl-7Q-54f" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1042.0289855072465" y="138.61607142857142"/>
+        </scene>
+        <!--Navigation Controller-->
+        <scene sceneID="NCg-iz-bHQ">
+            <objects>
+                <navigationController automaticallyAdjustsScrollViewInsets="NO" id="IvY-Y5-S63" sceneMemberID="viewController">
+                    <toolbarItems/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="2Dy-od-TW4">
+                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <nil name="viewControllers"/>
+                    <connections>
+                        <segue destination="iFE-NX-dd5" kind="relationship" relationship="rootViewController" id="pw1-7w-O6R"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UQO-CW-8Vb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="131.8840579710145" y="138.61607142857142"/>
         </scene>
