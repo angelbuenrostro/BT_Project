@@ -14,6 +14,7 @@
 		A24BB7A2238B65CC006C9029 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24BB7A0238B65CC006C9029 /* LaunchScreen.storyboard */; };
 		A24BB7AE238B6672006C9029 /* PokemonTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7AD238B6672006C9029 /* PokemonTableViewController.swift */; };
 		A24BB7B2238B66A3006C9029 /* Pokedex.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7B0238B66A3006C9029 /* Pokedex.xcdatamodeld */; };
+		A24BB7B4238B6715006C9029 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7B3238B6715006C9029 /* CoreDataStack.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +27,7 @@
 		A24BB7A3238B65CC006C9029 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		A24BB7AD238B6672006C9029 /* PokemonTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewController.swift; sourceTree = "<group>"; };
 		A24BB7B1238B66A3006C9029 /* Pokedex.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = Pokedex.xcdatamodel; sourceTree = "<group>"; };
+		A24BB7B3238B6715006C9029 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 			isa = PBXGroup;
 			children = (
 				A24BB7B0238B66A3006C9029 /* Pokedex.xcdatamodeld */,
+				A24BB7B3238B6715006C9029 /* CoreDataStack.swift */,
 			);
 			path = CoreData;
 			sourceTree = "<group>";
@@ -181,6 +184,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				A24BB7B4238B6715006C9029 /* CoreDataStack.swift in Sources */,
 				A24BB7B2238B66A3006C9029 /* Pokedex.xcdatamodeld in Sources */,
 				A24BB7AE238B6672006C9029 /* PokemonTableViewController.swift in Sources */,
 				A24BB796238B65CA006C9029 /* AppDelegate.swift in Sources */,
