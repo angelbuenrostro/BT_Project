@@ -16,60 +16,86 @@ class PokemonTableViewController: UITableViewController {
     let apiController = APIController()
     
     lazy var fetchedResultsController: NSFetchedResultsController<Pokemon> = {
+        
         let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
         
         fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        
         let moc = CoreDataStack.shared.mainContext
+        
         let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
                                              managedObjectContext: moc,
                                              sectionNameKeyPath: nil,
                                              cacheName: nil)
+        
         frc.delegate = self
+        
+        
         do {
+            
             try frc.performFetch()
+            
         } catch {
+            
             print("Could not perform fetch: \(error)")
+            
         }
+        
+        
         return frc
+        
     }()
     
 
     // MARK: - Actions
     
     @IBAction func fetchPokemonButtonTapped(_ sender: UIButton) {
-        print("Fetch Pokemon tapped.")
+        
         self.apiController.getRandomPokemon()
+        
     }
     
     // MARK: - View Life Cycle
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
+        
         self.tableView.rowHeight = 150
+        
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
+        
         return fetchedResultsController.sections?.count ?? 0
+        
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
+        
         return fetchedResultsController.sections?[section].numberOfObjects ?? 0
+        
     }
 
     override func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        
         let cell = tableView.dequeueReusableCell(withIdentifier: "PokeCell", for: indexPath) as! PokemonTableViewCell
 
         let pokemon = fetchedResultsController.object(at: indexPath)
+        
         cell.nameLabel.text = pokemon.name?.capitalized
+        
         cell.idLabel.text = "ID: \(String(pokemon.id))"
+        
+        
         if let imgURLString = pokemon.imgURLString {
-            // Load an image
+            
             cell.pokemonImageView.loadImageUsingCache(withUrl: imgURLString)
+            
         }
+        
 
         return cell
     }
@@ -77,17 +103,31 @@ class PokemonTableViewController: UITableViewController {
 
     // Override to support editing the table view.
     override func tableView(_ tableView: UITableView, commit editingStyle: UITableViewCell.EditingStyle, forRowAt indexPath: IndexPath) {
+        
         if editingStyle == .delete {
+            
             // Delete the row from the data source
+            
             let pokemon = fetchedResultsController.object(at: indexPath)
+            
             let moc = CoreDataStack.shared.mainContext
+            
             moc.delete(pokemon)
+            
+            
             do {
+                
                 try moc.save()
+                
             } catch {
+                
                 moc.reset()
+                
                 print("Error saving managed object context: \(error)")
+                
             }
+            
+            
         }
     }
 
@@ -98,15 +138,20 @@ class PokemonTableViewController: UITableViewController {
 extension PokemonTableViewController: NSFetchedResultsControllerDelegate {
     
     func controllerWillChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.beginUpdates()
+        
     }
     
     func controllerDidChangeContent(_ controller: NSFetchedResultsController<NSFetchRequestResult>) {
+        
         tableView.endUpdates()
+        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange sectionInfo: NSFetchedResultsSectionInfo, atSectionIndex sectionIndex: Int, for type: NSFetchedResultsChangeType)
     {
+        
         switch (type) {
         case .insert:
             self.tableView?.insertSections(IndexSet(integer: sectionIndex), with: .automatic);
@@ -117,9 +162,11 @@ extension PokemonTableViewController: NSFetchedResultsControllerDelegate {
         default:
             break;
         }
+        
     }
     
     func controller(_ controller: NSFetchedResultsController<NSFetchRequestResult>, didChange anObject: Any, at indexPath: IndexPath?, for type: NSFetchedResultsChangeType, newIndexPath: IndexPath?) {
+        
         switch type {
         case .insert:
             guard let newIndexPath = newIndexPath else { return }
@@ -137,34 +184,50 @@ extension PokemonTableViewController: NSFetchedResultsControllerDelegate {
         @unknown default:
             break
         }
+        
     }
+    
 }
 
 
 let imageCache = NSCache<NSString, AnyObject>()
 
 extension UIImageView {
+    
     func loadImageUsingCache(withUrl urlString : String) {
+        
         let url = URL(string: urlString)
+        
         self.image = nil
 
         // check cached image
         if let cachedImage = imageCache.object(forKey: urlString as NSString) as? UIImage {
+            
             self.image = cachedImage
+            
             return
+            
         }
 
-        // if not, download image from url
+        // if not found in cache, download
         URLSession.shared.dataTask(with: url!, completionHandler: { (data, response, error) in
+            
             if error != nil {
+                
                 print(error!)
+                
                 return
+                
             }
 
             DispatchQueue.main.async {
+                
                 if let image = UIImage(data: data!) {
+                    
                     imageCache.setObject(image, forKey: urlString as NSString)
+                    
                     self.image = image
+                    
                 }
             }
 
