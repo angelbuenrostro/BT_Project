@@ -45,6 +45,7 @@ class PokemonTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        self.tableView.rowHeight = 150
     }
 
     // MARK: - Table view data source
