@@ -7,13 +7,35 @@
 //
 
 import UIKit
+import CoreData
 
 class PokemonTableViewController: UITableViewController {
     
     // MARK: - Actions
+    
     @IBAction func fetchPokemonButtonTapped(_ sender: UIButton) {
         print("Fetch Pokemon tapped.")
     }
+    
+    // MARK: - Properties
+    
+    lazy var fetchedResultsController: NSFetchedResultsController<Pokemon> = {
+        let fetchRequest: NSFetchRequest<Pokemon> = Pokemon.fetchRequest()
+        
+        fetchRequest.sortDescriptors = [NSSortDescriptor(key: "id", ascending: true)]
+        let moc = CoreDataStack.shared.mainContext
+        let frc = NSFetchedResultsController(fetchRequest: fetchRequest,
+                                             managedObjectContext: moc,
+                                             sectionNameKeyPath: nil,
+                                             cacheName: nil)
+        frc.delegate = self
+        do {
+            try frc.performFetch()
+        } catch {
+            print("Could not perform fetch: \(error)")
+        }
+        return frc
+    }()
     
 
     override func viewDidLoad() {
@@ -85,4 +107,10 @@ class PokemonTableViewController: UITableViewController {
     }
     */
 
+}
+
+
+extension PokemonTableViewController: NSFetchedResultsControllerDelegate {
+    
+    
 }
