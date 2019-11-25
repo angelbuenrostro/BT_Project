@@ -17,6 +17,8 @@
 		A24BB7B4238B6715006C9029 /* CoreDataStack.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7B3238B6715006C9029 /* CoreDataStack.swift */; };
 		A24BB7B6238B67AD006C9029 /* Pokemon+Convenience.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7B5238B67AD006C9029 /* Pokemon+Convenience.swift */; };
 		A24BB7B8238B6873006C9029 /* PokemonTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7B7238B6873006C9029 /* PokemonTableViewCell.swift */; };
+		A24BB7BA238B71BB006C9029 /* APIController.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7B9238B71BB006C9029 /* APIController.swift */; };
+		A24BB7BC238B72ED006C9029 /* PokemonResult.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB7BB238B72ED006C9029 /* PokemonResult.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -32,6 +34,8 @@
 		A24BB7B3238B6715006C9029 /* CoreDataStack.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoreDataStack.swift; sourceTree = "<group>"; };
 		A24BB7B5238B67AD006C9029 /* Pokemon+Convenience.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Pokemon+Convenience.swift"; sourceTree = "<group>"; };
 		A24BB7B7238B6873006C9029 /* PokemonTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonTableViewCell.swift; sourceTree = "<group>"; };
+		A24BB7B9238B71BB006C9029 /* APIController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APIController.swift; sourceTree = "<group>"; };
+		A24BB7BB238B72ED006C9029 /* PokemonResult.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PokemonResult.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -81,6 +85,7 @@
 		A24BB7A9238B6636006C9029 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				A24BB7BB238B72ED006C9029 /* PokemonResult.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -97,6 +102,7 @@
 		A24BB7AB238B6645006C9029 /* Networking */ = {
 			isa = PBXGroup;
 			children = (
+				A24BB7B9238B71BB006C9029 /* APIController.swift */,
 			);
 			path = Networking;
 			sourceTree = "<group>";
@@ -191,9 +197,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				A24BB7B4238B6715006C9029 /* CoreDataStack.swift in Sources */,
+				A24BB7BC238B72ED006C9029 /* PokemonResult.swift in Sources */,
 				A24BB7B8238B6873006C9029 /* PokemonTableViewCell.swift in Sources */,
 				A24BB7B6238B67AD006C9029 /* Pokemon+Convenience.swift in Sources */,
 				A24BB7B2238B66A3006C9029 /* Pokedex.xcdatamodeld in Sources */,
+				A24BB7BA238B71BB006C9029 /* APIController.swift in Sources */,
 				A24BB7AE238B6672006C9029 /* PokemonTableViewController.swift in Sources */,
 				A24BB796238B65CA006C9029 /* AppDelegate.swift in Sources */,
 				A24BB798238B65CA006C9029 /* SceneDelegate.swift in Sources */,
