@@ -77,6 +77,11 @@
                                         <constraint firstAttribute="trailing" secondItem="prs-nG-rdN" secondAttribute="trailing" constant="20" id="xV8-TD-aEp"/>
                                     </constraints>
                                 </tableViewCellContentView>
+                                <connections>
+                                    <outlet property="idLabel" destination="ByM-lk-MCx" id="KNX-Zg-HEH"/>
+                                    <outlet property="nameLabel" destination="kHh-XB-lT6" id="wH0-bZ-xMq"/>
+                                    <outlet property="pokemonImageView" destination="3rb-xQ-uRs" id="Rob-lL-re5"/>
+                                </connections>
                             </tableViewCell>
                         </prototypes>
                         <connections>

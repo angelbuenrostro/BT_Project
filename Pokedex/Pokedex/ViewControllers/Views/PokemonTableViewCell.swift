@@ -9,7 +9,14 @@
 import UIKit
 
 class PokemonTableViewCell: UITableViewCell {
+    
+    // MARK: - Outlets
 
+    @IBOutlet weak var nameLabel: UILabel!
+    @IBOutlet weak var idLabel: UILabel!
+    @IBOutlet weak var pokemonImageView: UIImageView!
+    
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
