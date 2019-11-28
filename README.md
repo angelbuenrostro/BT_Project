@@ -1,7 +1,7 @@
 # BT_Project
 Take home project for an iOS developer position.
 
-This take home project had a few requirements but essentially let mne pick any public API and build an application.
+This take home project had a few requirements but essentially let me pick any public API and build an application.
 
 REQUIREMENTS:
 
