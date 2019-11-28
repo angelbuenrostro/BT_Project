@@ -77,6 +77,7 @@ class APIController {
                             }
                             
                         } else {
+                            
                             // Network Request failed
                             print(result)
                             

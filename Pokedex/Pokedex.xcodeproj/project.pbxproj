@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		A2331A44238FA1E800C9F414 /* ImageView+Networking.swift in Sources */ = {isa = PBXBuildFile; fileRef = A2331A43238FA1E800C9F414 /* ImageView+Networking.swift */; };
 		A24BB796238B65CA006C9029 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB795238B65CA006C9029 /* AppDelegate.swift */; };
 		A24BB798238B65CA006C9029 /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = A24BB797238B65CA006C9029 /* SceneDelegate.swift */; };
 		A24BB79D238B65CA006C9029 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = A24BB79B238B65CA006C9029 /* Main.storyboard */; };
@@ -22,6 +23,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		A2331A43238FA1E800C9F414 /* ImageView+Networking.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ImageView+Networking.swift"; sourceTree = "<group>"; };
 		A24BB792238B65CA006C9029 /* Pokedex.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Pokedex.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		A24BB795238B65CA006C9029 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		A24BB797238B65CA006C9029 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -49,6 +51,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		A2331A42238FA1D100C9F414 /* Helpers */ = {
+			isa = PBXGroup;
+			children = (
+				A2331A43238FA1E800C9F414 /* ImageView+Networking.swift */,
+			);
+			path = Helpers;
+			sourceTree = "<group>";
+		};
 		A24BB789238B65CA006C9029 = {
 			isa = PBXGroup;
 			children = (
@@ -70,6 +80,7 @@
 			children = (
 				A24BB795238B65CA006C9029 /* AppDelegate.swift */,
 				A24BB797238B65CA006C9029 /* SceneDelegate.swift */,
+				A2331A42238FA1D100C9F414 /* Helpers */,
 				A24BB7AF238B668D006C9029 /* CoreData */,
 				A24BB7A9238B6636006C9029 /* Models */,
 				A24BB7AA238B663E006C9029 /* ViewControllers */,
@@ -198,6 +209,7 @@
 			files = (
 				A24BB7B4238B6715006C9029 /* CoreDataStack.swift in Sources */,
 				A24BB7BC238B72ED006C9029 /* PokemonResult.swift in Sources */,
+				A2331A44238FA1E800C9F414 /* ImageView+Networking.swift in Sources */,
 				A24BB7B8238B6873006C9029 /* PokemonTableViewCell.swift in Sources */,
 				A24BB7B6238B67AD006C9029 /* Pokemon+Convenience.swift in Sources */,
 				A24BB7B2238B66A3006C9029 /* Pokedex.xcdatamodeld in Sources */,
